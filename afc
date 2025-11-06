@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Team</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: sans-serif;
+      color: white;
+      position: relative;
+      overflow-x: hidden;
+      background: linear-gradient(-45deg, #0d0d0d, #111827, #1a1a1a, #0f172a);
+      background-size: 400% 400%;
+      animation: gradientFlow 20s ease infinite;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Vertical margins */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(0,255,255,0.3), rgba(0,255,255,0));
+      z-index: 50;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+    body::before { left: 60px; }
+    body::after { right: 60px; }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="border-b border-white/10">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <!-- Logo -->
+      <div>
+        <img src="assets/images/logo.png" alt="Logo" class="w-8 h-8">
+      </div>
+      <!-- Menu -->
+      <ul class="flex space-x-10 uppercase text-sm tracking-wide">
+        <li><a href="index.html" class="hover:text-gray-400">Home</a></li>
+        <li><a href="project.html" class="hover:text-gray-400">Projects</a></li>
+        <li><a href="workshop.html" class="hover:text-gray-400">Workshops</a></li>
+        <li><a href="product.html" class="hover:text-gray-400">Products</a></li>
+        <li><a href="team.html" class="hover:text-gray-400 font-semibold border-b-2 border-white">Team</a></li>
+        <li><a href="contact.html" class="hover:text-gray-400">Contact ↗</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- TEAM Section -->
+  <main class="flex flex-col items-center justify-center min-h-screen text-center px-12 lg:px-24">
+    <h1 class="text-[4rem] md:text-[8rem] font-space Grotesk text-white/20 tracking-widest"><b>
+      THE TEAM
+    </h1>
+  </main>
+  <section class="max-w-6xl mx-auto py-16 px-6 text-center">
+  <!-- Title -->
+  <h2 class="text-3xl font-bold text-white mb-10 relative inline-block">
+    The Directors
+  </h2>
+
+  <!-- Directors Grid -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div class="director-card cursor-pointer" data-quote="Success is measured not by what we achieve, but by the positive impact we create in our community." data-author="Subhadr Gupta">
+      <img src="assets/images/subhadr.png" alt="Subhadr Gupta" class="w-full h-40 object-cover rounded-lg shadow-md">
+      <p class="mt-3 text-gray-300 font-medium">Subhadr Gupta</p>
+    </div>
+
+    <div class="director-card cursor-pointer" data-quote="Innovation comes from curiosity and persistence in solving real problems." data-author="Aman Agarwal">
+      <img src="assets/images/aman.png" alt="Aman Agarwal" class="w-full h-40 object-cover rounded-lg shadow-md">
+      <p class="mt-3 text-gray-300 font-medium">Aman Agarwal</p>
+    </div>
+
+    <div class="director-card cursor-pointer" data-quote="Great leadership is about empowering others to grow with you." data-author="Adwait Sidhana">
+      <img src="assets/images/adwait.png" alt="Adwait Sidhana" class="w-full h-40 object-cover rounded-lg shadow-md">
+      <p class="mt-3 text-gray-300 font-medium">Adwait Sidhana</p>
+    </div>
+
+    <div class="director-card cursor-pointer" data-quote="Every setback is just a stepping stone toward greater achievement." data-author="Prajot Gorkhe">
+      <img src="assets/images/prajot.png" alt="Prajot Gorkhe" class="w-full h-40 object-cover rounded-lg shadow-md">
+      <p class="mt-3 text-gray-300 font-medium">Prajot Gorkhe</p>
+    </div>
+  </div>
+
+  <!-- Quote Section -->
+  <div id="quote-box" class="mt-12">
+    <p id="quote-text" class="text-xl md:text-2xl font-light italic text-gray-200">
+      “Success is measured not by what we achieve, but by the positive impact we create in our community.”
+    </p>
+    <p id="quote-author" class="mt-4 text-blue-400 font-medium">— Subhadr Gupta</p>
+  </div>
+</section>
+
+<script>
+  const cards = document.querySelectorAll(".director-card");
+  const quoteText = document.getElementById("quote-text");
+  const quoteAuthor = document.getElementById("quote-author");
+
+  let current = 0;
+  let interval;
+
+  function showQuote(index) {
+    const card = cards[index];
+    quoteText.textContent = "“" + card.getAttribute("data-quote") + "”";
+    quoteAuthor.textContent = "— " + card.getAttribute("data-author");
+    cards.forEach(c => c.classList.remove("ring-2", "ring-blue-400"));
+    card.classList.add("ring-2", "ring-blue-400");
+    current = index;
+  }
+
+  // Auto rotate quotes
+  function startRotation() {
+    interval = setInterval(() => {
+      current = (current + 1) % cards.length;
+      showQuote(current);
+    }, 4000);
+  }
+
+  // Click to select a director
+  cards.forEach((card, i) => {
+    card.addEventListener("click", () => {
+      clearInterval(interval);
+      showQuote(i);
+      startRotation();
+    });
+  });
+
+  // Start
+  showQuote(0);
+  startRotation();
+</script>
+
+
+</body>
+</html>

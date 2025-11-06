@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css">
+
+  <script>
+    const token = localStorage.getItem('token');
+    if (!token) {
+      // If no token, redirect to login page IMMEDIATELY
+      window.location.href = '/admin/login.html';
+    }
+  </script>
+</head>
+<body>
+  <h1>Admin Dashboard</h1>
+  <button id="logout-button">Logout</button>
+  
+  <hr>
+  
+  <h2>Contact Messages</h2>
+  <div id="messages-container"></div>
+  
+  <hr>
+  <h2>Create New Update</h2>
+  <form id="update-form">
+      <input type="text" id="title" placeholder="Update Title" required>
+      <textarea id="content" placeholder="Update Content" required></textarea>
+      <button type="submit">Post Update</button>
+      <p id="update-status"></p>
+  </form>
+
+  <script src="admin.js"></script>
+</body>
+</html>

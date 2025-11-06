@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshops - Rocket Company</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #000;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0.05) 0,
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px,
+        transparent 20px
+      );
+    }
+    .footer {
+    background: #000;
+    color: #fff;
+    padding: 60px 20px 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 40px;
+  }
+
+  .footer h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .footer h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .footer p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-column ul li {
+    margin: 8px 0;
+  }
+
+  .footer-column ul li a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-column ul li a:hover {
+    color: #fff;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    font-size: 13px;
+    color: #888;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .footer-bottom a {
+    color: #ccc;
+    text-decoration: underline;
+  }
+
+  .footer-bottom a:hover {
+    color: #fff;
+  }
+
+  </style>
+</head>
+<body class="text-white min-h-screen flex flex-col relative">
+
+  <!-- Vertical Margin Lines -->
+  <div class="fixed top-0 bottom-0 left-12 w-px bg-white/10"></div>
+  <div class="fixed top-0 bottom-0 right-12 w-px bg-white/10"></div>
+
+  <!-- Navbar -->
+  <header class="border-b border-white/10 relative z-10">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <!-- Logo -->
+      <div>
+        <img src="logo.jpg" alt="Logo" class="w-8 h-8">
+      </div>
+      <!-- Menu -->
+      <ul class="flex space-x-10 uppercase text-sm tracking-wide">
+        <li><a href="index.html" class="hover:text-gray-400">Home</a></li>
+        <li><a href="project.html" class="hover:text-gray-400">Projects</a></li>
+        <li><a href="workshops.html" class="hover:text-gray-400 font-semibold border-b-2 border-white">Workshops</a></li>
+        <li><a href="product.html" class="hover:text-gray-400">Products</a></li>
+        <li><a href="#" class="hover:text-gray-400">Team</a></li>
+        <li><a href="#" class="hover:text-gray-400">Contact ↗</a></li>
+        <li><a href="cart.html">CART</a>
+</li>
+        <a id="auth-link" href="signin.html">SIGN IN</a>
+
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Workshops Section -->
+  <main class="flex-grow flex items-center justify-center text-center relative z-10 px-6 py-20">
+    <div class="max-w-5xl w-full">
+      <!-- Background Title -->
+      <h1 class="text-[6rem] md:text-[10rem] font-extrabold text-white/10 tracking-widest mb-12">
+        WORKSHOP
+      </h1>
+
+      <!-- Info Boxes -->
+      <div class="flex flex-col md:flex-row justify-center gap-6 mt-8">
+        <div class="bg-gradient-to-b from-neutral-900 to-black border border-white/10 px-6 py-4 flex items-center space-x-3">
+          <span></span>
+          <p class="text-sm font-medium">2000+ Engineers Trained</p>
+        </div>
+        <div class="bg-gradient-to-b from-neutral-900 to-black border border-white/10 px-6 py-4 flex items-center space-x-3">
+          <span></span>
+          <p class="text-sm font-medium">Mentorship from Industry Experts</p>
+        </div>
+        <div class="bg-gradient-to-b from-neutral-900 to-black border border-white/10 px-6 py-4 flex items-center space-x-3">
+          <span></span>
+          <p class="text-sm font-medium">Experiment-Driven Learning</p>
+        </div>
+      </div>
+    </div>
+  </main>
+<section class="px-12 py-16">
+  <h2 class="text-3xl font-bold mb-8">Rocketry Workshops - Basic</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+    <!-- Card 1 -->
+    <div class="bg-black border border-white/10 rounded-lg overflow-hidden shadow-lg w-[320px]">
+      <div class="relative">
+        <img src="assets/images/workshop1.jpg" alt="Workshop" class="w-full h-40 object-cover">
+        <span class="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded">Beginner</span>
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg font-bold">Introduction to Rocketry</h3>
+        <p class="text-gray-400 text-sm mt-2">
+          Learn the fundamentals of rocket design and propulsion systems, build your own model rocket, and experience the thrill of launching.
+        </p>
+        <div class="flex items-center text-gray-400 text-sm mt-4 space-x-4">
+          <span>⏱️ 2 Days</span>
+          <span>👥 60+</span>
+        </div>
+        <div class="mt-4">
+          <h4 class="font-semibold text-sm mb-2">Topics Covered:</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Rocket Principles</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Basic Propulsion</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">OpenRocket</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Hands-on</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Live Launch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-black border border-white/10 rounded-lg overflow-hidden shadow-lg w-[320px]">
+      <div class="relative">
+        <img src="assets/images/workshop2.jpg" alt="Workshop" class="w-full h-40 object-cover">
+        <span class="absolute top-2 right-2 bg-yellow-600 text-white text-xs px-2 py-1 rounded">Intermediate</span>
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg font-bold">Advanced Rocketry Concepts</h3>
+        <p class="text-gray-400 text-sm mt-2">
+          Dive into stability analysis, advanced propulsion, and simulation tools to design rockets capable of higher altitudes.
+        </p>
+        <div class="flex items-center text-gray-400 text-sm mt-4 space-x-4">
+          <span>⏱️ 3 Days</span>
+          <span>👥 40+</span>
+        </div>
+        <div class="mt-4">
+          <h4 class="font-semibold text-sm mb-2">Topics Covered:</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Stability</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Thrust Analysis</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">CAD Tools</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Fabrication</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-black border border-white/10 rounded-lg overflow-hidden shadow-lg w-[320px]">
+      <div class="relative">
+        <img src="assets/images/workshop3.jpg" alt="Workshop" class="w-full h-40 object-cover">
+        <span class="absolute top-2 right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">Expert</span>
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg font-bold">High Power Rocketry</h3>
+        <p class="text-gray-400 text-sm mt-2">
+          Hands-on experience with high power rocket design, safety protocols, and certification guidelines for advanced rocketeers.
+        </p>
+        <div class="flex items-center text-gray-400 text-sm mt-4 space-x-4">
+          <span>⏱️ 5 Days</span>
+          <span>👥 25+</span>
+        </div>
+        <div class="mt-4">
+          <h4 class="font-semibold text-sm mb-2">Topics Covered:</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Safety</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Composite Propulsion</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Electronics</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Launch Systems</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="bg-black border border-white/10 rounded-lg overflow-hidden shadow-lg w-[320px]">
+      <div class="relative">
+        <img src="assets/images/workshop4.jpg" alt="Workshop" class="w-full h-40 object-cover">
+        <span class="absolute top-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded">Special</span>
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg font-bold">Satellite Launch Workshop</h3>
+        <p class="text-gray-400 text-sm mt-2">
+          Learn how satellites are integrated into rockets, payload deployment techniques, and mission design for space projects.
+        </p>
+        <div class="flex items-center text-gray-400 text-sm mt-4 space-x-4">
+          <span>⏱️ 4 Days</span>
+          <span>👥 30+</span>
+        </div>
+        <div class="mt-4">
+          <h4 class="font-semibold text-sm mb-2">Topics Covered:</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Payload</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Mission Design</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Deployment</span>
+            <span class="px-2 py-1 bg-black border border-gray-600 text-xs">Mini-Satellites</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Gallery Section -->
+<section class="relative py-16 px-6 md:px-20 border-t border-gray-800" 
+  style="background-color: #000;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.05) 0,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 20px
+    );">
+
+  <!-- Title -->
+  <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">
+    Gallery from Our Recent Rocketry Workshops
+  </h2>
+
+  <!-- Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+    
+    <!-- Card 1 -->
+    <div class="border border-gray-800 p-4">
+      <img src="assets/images/gallery1.jpg" alt="Workshop at IIT Bombay"
+        class="w-full h-60 object-cover mb-4">
+      <h3 class="font-semibold">Rocketry Workshop – IIT Bombay</h3>
+      <p class="text-gray-400 text-sm">
+        Over 200 students participated in our hands-on launch and design session.
+      </p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="border border-gray-800 p-4">
+      <img src="assets/images/gallery2.jpg" alt="Rocket Launch"
+        class="w-full h-60 object-cover mb-4">
+      <h3 class="font-semibold">First High-Powered Rocket Launch</h3>
+      <p class="text-gray-400 text-sm">
+        Captured moment of our first successful high-powered rocket launch.
+      </p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="border border-gray-800 p-4">
+      <img src="assets/images/gallery3.jpg" alt="Students Workshop"
+        class="w-full h-60 object-cover mb-4">
+      <h3 class="font-semibold">Hands-on Student Workshop</h3>
+      <p class="text-gray-400 text-sm">
+        Students learned rocket assembly and propulsion principles step by step.
+      </p>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="border border-gray-800 p-4">
+      <img src="assets/images/gallery4.jpg" alt="Rocketry Demo"
+        class="w-full h-60 object-cover mb-4">
+      <h3 class="font-semibold">Rocketry Demonstration Day</h3>
+      <p class="text-gray-400 text-sm">
+        A live demo session showcasing small-scale rockets to participants.
+      </p>
+    </div>
+
+  </div>
+</section>
+<!-- Newsletter Section -->
+<section class="relative py-20 text-center overflow-hidden"
+  style="background-color: #000;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.05) 0,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 20px
+    );">
+
+  <div class="relative z-10 max-w-2xl mx-auto px-6">
+    <!-- Heading -->
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Want us at your university ?</h2>
+    
+    <!-- Subtitle -->
+    <p class="text-gray-400 mb-8">
+      Host exclusive workshops with real aerospace tools, engineers, and hands-on projects at your campus.
+    </p>
+    
+    <!-- Subscription form -->
+    <form class="flex flex-col sm:flex-row items-center justify-center gap-4">
+     
+      <button 
+        type="submit" 
+        class="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-gray-200 transition"
+      >
+        CONTACT US 
+      </button>
+    </form>
+  </div>
+  </section>
+  <!-- Footer Section -->
+<footer class="footer relative overflow-hidden">
+  
+  <!-- Background Watermark -->
+  <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+    <h1 class="text-[120px] md:text-[200px] font-extrabold tracking-widest text-white">
+      THRUST TECH INDIA
+    </h1>
+  </div>
+
+  <div class="footer-container relative z-10">
+    <!-- Left Section -->
+    <div class="footer-column">
+      <h3>THRUST TECH INDIA</h3>
+      <p>📧 thrusttechindia@gmail.com</p>
+      <p>📞 +91 9873678489</p>
+      <p>📍 Thrust Tech India KL 141, Block L, Sector 18, Kavi Nagar, Ghaziabad,<br> Uttar Pradesh 201002</p>
+    </div>
+
+    <!-- Middle Section -->
+    <div class="footer-column">
+      <h4>QUICK LINKS</h4>
+      <ul>
+        <li><a href="#">Workshops</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Right Section -->
+    <div class="footer-column">
+      <h4>FOLLOW US</h4>
+      <ul>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom relative z-10">
+    <p>© 2025 THRUST TECH INDIA PVT. LIMITED</p>
+    <p>MADE BY <a href="#">Piyush Gautam</a></p>
+  </div>
+</footer>
+  </div>
+  <script>
+function signOut(){
+    localStorage.removeItem("userLoggedIn");
+    alert("Signed out successfully.");
+    window.location.href = "signin.html";
+}
+</script>
+
+
+</body>
+</html>
