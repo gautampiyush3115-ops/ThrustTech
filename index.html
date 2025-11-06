@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thrust Tech India</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+   <!-- SwiperJS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+  <style>
+    /* Vertical grid lines 
+    .grid-lines {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+    .grid-lines div {
+      background: rgba(255, 255, 255, 0.07);
+      width: 1px;
+      justify-self: stretch;
+    }
+*/
+    /* Shining effect for heading */
+    /* Navbar Shuffle Hover */
+nav ul li:hover {
+  animation: shuffle 0.3s ease forwards;
+}
+
+@keyframes shuffle {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(3px); }
+  50% { transform: translateX(-3px); }
+  75% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+/* Page Load Fade Animation */
+.page-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUpPage 1s ease-out forwards;
+}
+
+@keyframes fadeInUpPage {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+    .shine {
+      background: linear-gradient(
+        90deg,
+        #555 0%,
+        #fff 50%,
+        #555 100%
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 3s linear infinite;
+    }
+
+    @keyframes shine {
+      0% { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+    
+    /* MODIFICATION: Animation for page load 
+  @keyframes fadeInUp       {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .fade-in-up {
+    opacity: 0; /* Start hidden 
+    animation: fadeInUp 1s ease-out forwards;
+  }
+*/
+   @keyframes fadeInup{
+    from{
+      opacity:0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+   }
+   fade-in-up {
+    opacity:0;
+    animation: fadeInUp 1s ease-out forwards;
+   }
+
+    
+  .partners-section {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .partners-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .partners-section p {
+    font-size: 16px;
+    color: #aaa;
+    margin-bottom: 40px;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .partner img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    margin: auto;
+    display: block;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  .partner img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  .footer {
+    background: #000;
+    color: #fff;
+    padding: 60px 20px 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 40px;
+  }
+
+  .footer h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .footer h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .footer p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-column ul li {
+    margin: 8px 0;
+  }
+
+  .footer-column ul li a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-column ul li a:hover {
+    color: #fff;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    font-size: 13px;
+    color: #888;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .footer-bottom a {
+    color: #ccc;
+    text-decoration: underline;
+  }
+
+  .footer-bottom a:hover {
+    color: #fff;
+  }
+  /* Rocket Right-to-Left Launch Animation */
+.rocket {
+  position: absolute;
+  right: -200px; /* start off screen */
+  bottom: 0;
+  width: 200px;
+  animation: rocketLaunch 3s ease-out forwards;
+}
+
+@keyframes rocketLaunch {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50vw) translateY(-40px) rotate(-10deg);
+  }
+  100% {
+    transform: translateX(-100vw) translateY(-120px) rotate(-25deg);
+    opacity: 0;
+  }
+}
+/* ⭐ Animated Starfield Background */
+#stars, #stars2, #stars3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  animation: moveStars 120s linear infinite;
+  z-index: -1;
+}
+
+#stars2 {
+  animation-duration: 180s;
+  opacity: 0.6;
+}
+
+#stars3 {
+  animation-duration: 240s;
+  opacity: 0.3;
+}
+
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to { background-position: -10000px 5000px; }
+}
+
+
+  </style>
+</head>
+<body class="bg-black text-white font-sans page-fade">
+
+  <!-- FAINT VERTICAL GRID BACKGROUND -->
+  <div class="grid-lines">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="relative z-10">
+
+    <!-- NAVBAR -->
+    <header class="border-b border-white/10">
+      <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        <!-- Logo -->
+        <div>
+          <img src="logo.jpg" alt="Logo" class="w-8 h-8">
+        </div>
+        <!-- Menu -->
+        <ul class="flex space-x-10 uppercase text-sm tracking-wide">
+          <li><a href="#" class="hover:text-gray-400">Home</a></li>
+          <li><a href="project.html" class="hover:text-gray-400">Projects</a></li>
+          <li><a href="workshop.html" class="hover:text-gray-400">Workshops</a></li>
+          <li><a href="product.html" class="hover:text-gray-400">Products</a></li>
+          <li><a href="team.html" class="hover:text-gray-400">Team</a></li>
+          <li><a href="contact.html" class="hover:text-gray-400">Contact ↗</a></li>
+         <li><a href="cart.html">CART</a></li> 
+
+         <li><a id="auth-link" href="signin.html">SIGN IN</a></li> 
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative text-center py-16">
+      <!-- ⭐ Animated Star Background -->
+<div id="stars" class="absolute inset-0 -z-10"></div>
+<div id="stars2" class="absolute inset-0 -z-10"></div>
+<div id="stars3" class="absolute inset-0 -z-10"></div>
+
+      <!-- Title with shine effect -->
+      <h1 class="shine text-6xl md:text-8xl font-extrabold tracking-widest fade-in-up">
+        THRUST TECH INDIA
+      </h1>
+
+      <!-- Rocket Image -->
+      <div class="mt-10 fade-in-up" style="animation-delay: 0.2s;">
+        <!-- Animated Rocket -->
+<div class="rocket-launch mx-auto w-1/2 h-40 relative overflow-visible">
+  <img src="assets/images/astranaut.jpeg" alt="Rocket" class="rocket">
+</div>
+</div>
+
+      <!-- Countdown & Explore -->
+      <div class="mt-10 flex flex-col md:flex-row items-center justify-between gap-8 px-8 fade-in-up" style="animation-delay: 0.4s";>
+        
+        <!-- Countdown Box -->
+        <div class="border border-white/20 p-6 text-center">
+          <h3 class="mb-4 font-bold uppercase">Next Launch</h3>
+          <div id="countdown" class="flex space-x-4 text-xl font-mono fade-in-up"></div>
+        </div>
+
+        <!-- Explore Button -->
+        <div class="flex-1 flex justify-center">
+          <button class="bg-gray-800 px-8 py-4 font-semibold uppercase hover:bg-gray-700 transition">
+            Explore
+          </button>
+        </div>
+
+        <!-- Categories -->
+        <div class="flex space-x-6">
+          <div class="border border-white/20 p-4">
+            <img src="assets/images/drone.jpeg" alt="Drone" class="w-20 h-20 mx-auto">
+            <p class="mt-2 uppercase text-sm font-semibold">Drones</p>
+          </div>
+          <div class="border border-white/20 p-4">
+            <img src="assets/images/rocket-icon.jpeg" alt="Rocket" class="w-20 h-20 mx-auto">
+            <p class="mt-2 uppercase text-sm font-semibold">Rockets</p>
+          </div>
+          <div class="border border-white/20 p-4">
+            <img src="assets/images/plane.jpeg" alt="Plane" class="w-20 h-20 mx-auto">
+            <p class="mt-2 uppercase text-sm font-semibold">Planes</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Down -->
+      <div class="mt-12 text-sm text-gray-400 uppercase tracking-widest text-center fade-in-up" style="animation-delay: 0.4s";>
+        Scroll to Discover ↓
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE SECTION -->
+    <section id="why-choose" class="relative py-20 text-center max-w-6xl mx-auto px-6">
+      <div id="stars" class="absolute inset-0 -z-10"></div>
+<div id="stars2" class="absolute inset-0 -z-10"></div>
+<div id="stars3" class="absolute inset-0 -z-10"></div>
+      <div class="mb-12">
+        <img src="logo.jpg" alt="Logo" class="w-10 h-10 mx-auto mb-6">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Why Choose Thrust Tech India?</h2>
+        <p class="text-gray-400 max-w-3xl mx-auto">
+          We bring the world of aerospace closer to learners by combining expert guidance, advanced tools, and practical projects—
+          crafted with care and precision to transform curiosity into lasting capability.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <h3 class="text-4xl font-bold text-white counter" data-target="2500">0</h3>
+          <p class="mt-2 text-gray-400 uppercase text-sm">Students Trained</p>
+        </div>
+        <div>
+          <h3 class="text-4xl font-bold text-white counter" data-target="700">0</h3>
+          <p class="mt-2 text-gray-400 uppercase text-sm">Rockets Launched</p>
+        </div>
+        <div>
+          <h3 class="text-4xl font-bold text-white counter" data-target="100">0</h3>
+          <p class="mt-2 text-gray-400 uppercase text-sm">Satisfied Clients</p>
+        </div>
+        <div>
+          <h3 class="text-4xl font-bold text-white counter" data-target="25">0</h3>
+          <p class="mt-2 text-gray-400 uppercase text-sm">Expert Engineers</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION STATEMENT -->
+    <section id="mission" class="relative h-screen flex items-center justify-center px-6">
+      <div id="stars" class="absolute inset-0 -z-10"></div>
+<div id="stars2" class="absolute inset-0 -z-10"></div>
+<div id="stars3" class="absolute inset-0 -z-10"></div>
+      <h2 class="mission-text text-4xl md:text-5xl font-extrabold max-w-3xl text-center leading-snug">
+        <span class="word">We’re</span>
+        <span class="word">a</span>
+        <span class="word">pioneering</span>
+        <span class="word">rocket</span>
+        <span class="word">company</span>
+        <span class="word">pushing</span>
+        <span class="word">the</span>
+        <span class="word">limits</span>
+        <span class="word">of</span>
+        <span class="word">space</span>
+        <span class="word">and</span>
+        <span class="word">redefining</span>
+        <span class="word">aerospace</span>
+        <span class="word">technology.</span>
+      </h2>
+    </section>
+
+        <!-- HIGHLIGHTS SECTION -->
+    <section id="highlights" class="relative py-20 bg-white text-black">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-12 uppercase tracking-wide">
+          Highlights
+        </h2>
+
+        <div class="space-y-10">
+
+          <!-- CARD 1 -->
+          <div class="flex flex-col md:flex-row items-center bg-white shadow-md p-8 relative">
+            <!-- Left Side -->
+            <div class="md:w-1/3 flex items-center space-x-4 mb-6 md:mb-0">
+              <div class="text-2xl font-bold text-gray-600">01.</div>
+              <img src="logo.jpg" alt="Event" class="w-10 h-10">
+              <div>
+                <p class="text-xs text-blue-600 font-semibold uppercase">Collaboration</p>
+                <h3 class="font-bold text-lg leading-snug">
+                  National Rocketry Event <br> Collaboration with IN-SPACe
+                </h3>
+              </div>
+            </div>
+            <!-- Right Side -->
+            <div class="md:w-2/3 text-gray-700 leading-relaxed">
+              In partnership with IN-SPACe, Thrust Tech India is spearheading India’s first large-scale 
+              National Rocketry Event. As the official technology partner, we provide engineering expertise, 
+              testing infrastructure, and launch systems that enable students and institutions across the 
+              country to design, build, and launch rockets. This initiative inspires a new generation of 
+              aerospace innovators while positioning India on the global rocketry stage.
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="flex flex-col md:flex-row items-center bg-white shadow-md p-8 relative">
+            <!-- Left Side -->
+            <div class="md:w-1/3 flex items-center space-x-4 mb-6 md:mb-0">
+              <div class="text-2xl font-bold text-gray-600">02.</div>
+              <img src="logo.jpg" alt="Innovation" class="w-10 h-10">
+              <div>
+                <p class="text-xs text-blue-600 font-semibold uppercase">Innovation</p>
+                <h3 class="font-bold text-lg leading-snug">
+                  Advanced Space Lab Development
+                </h3>
+              </div>
+            </div>
+            <!-- Right Side -->
+            <div class="md:w-2/3 text-gray-700 leading-relaxed">
+              Thrust Tech India has developed an advanced space lab equipped with indigenous testing 
+              infrastructure, enabling rapid prototyping and validation of aerospace technologies. 
+              This facility supports both student innovators and commercial ventures.
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="flex flex-col md:flex-row items-center bg-white shadow-md p-8 relative">
+            <!-- Left Side -->
+            <div class="md:w-1/3 flex items-center space-x-4 mb-6 md:mb-0">
+              <div class="text-2xl font-bold text-gray-600">03.</div>
+              <img src="logo.jpg" alt="Global" class="w-10 h-10">
+              <div>
+                <p class="text-xs text-blue-600 font-semibold uppercase">Global Reach</p>
+                <h3 class="font-bold text-lg leading-snug">
+                  International Aerospace Partnerships
+                </h3>
+              </div>
+            </div>
+            <!-- Right Side -->
+            <div class="md:w-2/3 text-gray-700 leading-relaxed">
+              By forging collaborations with leading aerospace organizations worldwide, 
+              Thrust Tech India is expanding its impact and providing students and engineers 
+              opportunities to participate in international research, development, and launch programs.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- NATIONAL IMPACT SECTION -->
+    <section id="impact" class="relative py-20 bg-gray-50 text-black">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+
+        <!-- Logo Icon -->
+        <div class="flex justify-center mb-6">
+          <img src="logo.jpg" alt="Logo" class="w-12 h-12 opacity-70">
+        </div>
+
+        <!-- Heading -->
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
+          Our National Impact
+        </h2>
+
+        <!-- Subtext -->
+        <p class="text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+          Thrust Tech India is developing India’s aerospace and rocketry ecosystem by enabling 
+          students and institutions to access advanced space education, in alignment with the 
+          vision of ISRO and the nation’s growing space sector.
+        </p>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 border border-gray-200">
+          <!-- Stat 1 -->
+          <div class="p-8 border-b md:border-b-0 md:border-r border-gray-200">
+            <h3 class="text-3xl font-extrabold">15+</h3>
+            <p class="mt-2 text-gray-600">Institutional Collaborations</p>
+          </div>
+          <!-- Stat 2 -->
+          <div class="p-8 border-b md:border-b-0 md:border-r border-gray-200">
+            <h3 class="text-3xl font-extrabold">20</h3>
+            <p class="mt-2 text-gray-600">Cities Reached</p>
+          </div>
+          <!-- Stat 3 -->
+          <div class="p-8">
+            <h3 class="text-3xl font-extrabold">25</h3>
+            <p class="mt-2 text-gray-600">Organic Growth</p>
+          </div>
+        </div>
+      </div>
+    </section>
+   <section id="video" class="relative py-20 bg-black text-white">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
+          See Our Mission in Action
+        </h2>
+
+        <p class="text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
+          From student workshops to our latest test launches, watch our journey 
+          as we redefine aerospace technology in India.
+        </p>
+
+        <div class="relative h-0 pb-[56.25%] shadow-lg rounded-xl overflow-hidden">
+          <iframe 
+            class="absolute top-0 left-0 w-full h-full" 
+            src="assets/images/event.mp4" 
+            title="Thrust Tech India Mission Video" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    </section>
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="relative py-20 bg-black text-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-12">
+          Gallery – Workshops
+        </h2>
+
+        <!-- Swiper Container -->
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <img src="assets/images/workshop1.jpg" 
+                   alt="Workshop 1"
+                   class="w-full h-80 object-contain rounded-xl shadow-lg">
+            </div>
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <img src="assets/images/workshop2.jpg" 
+                   alt="Workshop 2"
+                   class="w-full h-80 object-contain rounded-xl shadow-lg">
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <img src="assets/images/workshop3.jpg" 
+                   alt="Workshop 3"
+                   class="w-full h-80 object-contain rounded-xl shadow-lg">
+            </div>
+            <!-- Slide 4 -->
+            <div class="swiper-slide">
+              <img src="assets/images/workshop4.jpg" 
+                   alt="Workshop 4"
+                   class="w-full h-80 object-contain rounded-xl shadow-lg">
+            </div>
+          </div>
+
+          <!-- Swiper Controls -->
+          <div class="swiper-pagination mt-6"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Our Partners Section -->
+<section class="partners-section">
+  <h2>Our Partners</h2>
+  <p>Collaborating with leading organizations in aerospace, defense, and education.</p>
+  
+  <div class="partners-grid">
+    <div class="partner"><img src="https://via.placeholder.com/150x80?text=Partner+1" alt="Partner logo"></div>
+    <div class="partner"><img src="https://via.placeholder.com/150x80?text=Partner+2" alt="Partner logo"></div>
+    <div class="partner"><img src="https://via.placeholder.com/150x80?text=Partner+3" alt="Partner logo"></div>
+    <div class="partner"><img src="https://via.placeholder.com/150x80?text=Partner+4" alt="Partner logo"></div>
+    <div class="partner"><img src="https://via.placeholder.com/150x80?text=Partner+5" alt="Partner logo"></div>
+    <div class="partner"><img src="https://via.placeholder.com/150x80?text=Partner+6" alt="Partner logo"></div>
+    <div class="partner"><img src="https://via.placeholder.com/150x80?text=Partner+7" alt="Partner logo"></div>
+    <div class="partner"><img src="https://via.placeholder.com/150x80?text=Partner+8" alt="Partner logo"></div>
+  </div>
+</section>
+<!-- PARTNER TESTIMONIALS -->
+<section class="bg-black text-white py-20">
+  <h2 class="text-center text-4xl font-bold mb-12">Partner Testimonials</h2>
+
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+
+    <!-- DP LEFT -->
+    <div class="flex justify-center">
+      <img id="partner-dp" src="logo.jpg" 
+           class="rounded-xl shadow-xl w-60 h-60 object-cover">
+    </div>
+
+    <!-- FEEDBACK RIGHT -->
+    <div>
+      <h3 id="partner-name" class="text-2xl font-bold mb-3">Partner Name</h3>
+      <p id="partner-feedback" class="text-gray-300 text-lg leading-relaxed">
+        Sample feedback will rotate...
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Spacing before footer -->
+<div class="h-20"></div>
+
+<!-- Footer Section -->
+<footer class="footer relative overflow-hidden">
+  
+  <!-- Background Watermark -->
+  <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+    <h1 class="text-[120px] md:text-[200px] font-extrabold tracking-widest text-white">
+      THRUST TECH INDIA
+    </h1>
+  </div>
+
+  <div class="footer-container relative z-10">
+    <!-- Left Section -->
+    <div class="footer-column">
+      <h3>THRUST TECH INDIA</h3>
+      <p>📧 thrusttechindia@gmail.com</p>
+      <p>📞 +91 9873678489</p>
+      <p>📍 Thrust Tech India KL 141, Block L, Sector 18, Kavi Nagar, Ghaziabad,<br> Uttar Pradesh 201002</p>
+    </div>
+
+    <!-- Middle Section -->
+    <div class="footer-column">
+      <h4>QUICK LINKS</h4>
+      <ul>
+        <li><a href="#">Workshops</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Right Section -->
+    <div class="footer-column">
+      <h4>FOLLOW US</h4>
+      <ul>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom relative z-10">
+    <p>© 2025 THRUST TECH INDIA PVT. LIMITED</p>
+    <p>MADE BY <a href="#">Piyush Gautam</a></p>
+  </div>
+</footer>
+  </div>
+
+  <!-- COUNTDOWN SCRIPT -->
+  <script>
+    const countdown = document.getElementById("countdown");
+    const launchDate = new Date().getTime() + (24*60*60*1000);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance < 0) {
+        countdown.innerHTML = "Launched!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `
+        <div class="text-center"><div class="bg-black px-3 py-2">${days}</div><span class="text-xs">D</span></div>
+        <div class="text-center"><div class="bg-black px-3 py-2">${hours}</div><span class="text-xs">H</span></div>
+        <div class="text-center"><div class="bg-black px-3 py-2">${minutes}</div><span class="text-xs">M</span></div>
+        <div class="text-center"><div class="bg-black px-3 py-2">${seconds}</div><span class="text-xs">S</span></div>
+      `;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <!-- COUNTER SCRIPT -->
+  <script>
+    const counters = document.querySelectorAll(".counter");
+    const animateCounters = () => {
+      counters.forEach(counter => {
+        counter.innerText = "0"; 
+        const target = +counter.getAttribute("data-target");
+        const speed = target / 200; 
+
+        const updateCount = () => {
+          const current = +counter.innerText;
+          if (current < target) {
+            counter.innerText = Math.ceil(current + speed);
+            setTimeout(updateCount, 20);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+    };
+    const section = document.getElementById("why-choose");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) animateCounters();
+      });
+    }, { threshold: 0.5 });
+    observer.observe(section);
+  </script>
+
+  <!-- MISSION WORD HIGHLIGHT SCRIPT -->
+  <script>
+    const missionSection = document.getElementById("mission");
+    const words = missionSection.querySelectorAll(".word");
+
+    window.addEventListener("scroll", () => {
+      const rect = missionSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      let progress = 1 - Math.max(0, rect.top) / windowHeight;
+      progress = Math.min(Math.max(progress, 0), 1);
+
+      words.forEach((word, i) => {
+        const step = i / words.length;
+        if (progress > step) {
+          let localProgress = (progress - step) * words.length;
+          localProgress = Math.min(Math.max(localProgress, 0), 1);
+          const colorValue = Math.floor(localProgress * 255);
+          word.style.color = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
+        } else {
+          word.style.color = `rgb(0,0,0)`; 
+        }
+      });
+    });
+  </script>
+ <!-- SwiperJS Config -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,   // Mobile
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 2500,   // 2.5 seconds
+          disableOnInteraction: false, // keeps autoplay running even after user swipes
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+       /* breakpoints: {
+          640: { slidesPerView: 2 },  // Tablet
+          1024: { slidesPerView: 4 }  // Desktop
+        } */
+      });
+    </script>
+    <script>
+  const testimonials = [
+    {
+      name: "Partner 1",
+      dp: "https://via.placeholder.com/250?text=Partner+1",
+      text: "Thrust Tech India has transformed aerospace learning in India. Their dedication and innovation are unmatched."
+    },
+    {
+      name: "Partner 2",
+      dp: "https://via.placeholder.com/250?text=Partner+2",
+      text: "Our collaboration has yielded tremendous results in rocketry events and student outreach programs."
+    },
+    {
+      name: "Partner 3",
+      dp: "https://via.placeholder.com/250?text=Partner+3",
+      text: "A passionate, futuristic organization leading India's space education ecosystem."
+    }
+  ];
+
+  let tIndex = 0;
+
+  function updateTestimonial() {
+    const t = testimonials[tIndex];
+    document.getElementById("partner-dp").src = t.dp;
+    document.getElementById("partner-name").innerText = t.name;
+    document.getElementById("partner-feedback").innerText = t.text;
+
+    tIndex = (tIndex + 1) % testimonials.length;
+  }
+
+  updateTestimonial();
+  setInterval(updateTestimonial, 3000);
+</script>
+<script>
+  window.onload = () => {
+    const rocket = document.querySelector('.rocket');
+    rocket.style.animation = 'none';
+    setTimeout(() => rocket.style.animation = '', 10);
+  };
+</script>
+<script>
+function signOut(){
+    localStorage.removeItem("userLoggedIn");
+    alert("Signed out successfully.");
+    window.location.href = "signin.html";
+}
+</script>
+<script>
+function updateAuthLink(){
+    const authLink = document.getElementById("auth-link");
+    const isLoggedIn = localStorage.getItem("userLoggedIn");
+
+    if(isLoggedIn){
+        authLink.innerText = "SIGN OUT";
+        authLink.href = "#";
+        authLink.onclick = signOut;
+    }
+    else{
+        authLink.innerText = "SIGN IN";
+        authLink.href = "signin.html";
+        authLink.onclick = null;
+    }
+}
+updateAuthLink();
+</script>
+
+</body>
+</html>

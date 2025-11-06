@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+    background:#000;
+    color:#d8d8d8;
+    font-family: 'Roboto', sans-serif;
+    overflow-x:hidden;
+
+    /* Subtle aerospace grain texture */
+    background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+/* NASA/SpaceX style clean black panel */
+.cart-container {
+    max-width:900px;
+    margin:80px auto;
+    background:#0d0d0d;
+    border:1px solid #222;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 0 50px rgba(0,0,0,0.55);
+}
+
+/* Title – aerospace tech typography */
+.cart-title {
+    font-size:46px;
+    font-weight:700;
+    text-transform:uppercase;
+    text-align:center;
+    letter-spacing:4px;
+    color:#e7e7e7;
+    margin-bottom:35px;
+}
+
+/* Cart item rows */
+.cart-item {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+    border-bottom:1px solid #1b1b1b;
+    font-size:16px;
+}
+
+/* Remove Button */
+.cart-item button {
+    background:none;
+    border:none;
+    color:#888;
+    font-size:14px;
+    cursor:pointer;
+    transition:0.3s;
+}
+.cart-item button:hover {
+    color:#bbb;
+}
+
+/* Checkout button – dark neutral theme */
+.checkout-button {
+    background:#1a1a1a;
+    color:#e5e5e5;
+    padding:14px 20px;
+    font-weight:600;
+    border:1px solid #333;
+    border-radius:6px;
+    width:220px;
+    margin-top:25px;
+    transition:0.3s;
+}
+.checkout-button:hover {
+    background:#222;
+    border-color:#444;
+}
+
+
+
+.aero-bg {
+    position: fixed;
+    inset: 0;
+    background: url('https://i.ibb.co/5F0M1mh/stars-bg-dark.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12;
+    z-index: -1;
+}
+</style>
+
+</head>
+
+<body>
+    
+
+    <header class="border-b border-white/10">
+      <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        <!-- Logo -->
+        <div>
+          <img src="logo.jpg" alt="Logo" class="w-8 h-8">
+        </div>
+        <!-- Menu -->
+        <ul class="flex space-x-10 uppercase text-sm tracking-wide">
+          <li><a href="index.html" class="hover:text-gray-400">Home</a></li>
+          <li><a href="project.html" class="hover:text-gray-400">Projects</a></li>
+          <li><a href="workshop.html" class="hover:text-gray-400">Workshops</a></li>
+          <li><a href="product.html" class="hover:text-gray-400">Products</a></li>
+          <li><a href="team.html" class="hover:text-gray-400">Team</a></li>
+          <li><a href="contact.html" class="hover:text-gray-400">Contact ↗</a></li>
+          <li><a href="cart.html">CART</a></li>
+          <a id="auth-link" href="signin.html">SIGN IN</a>
+
+        </ul>
+      </nav>
+    </header>
+
+
+<div class="cart-container">
+    <h1 class="cart-title">Cart</h1>
+
+    <div id="cart-items"></div>
+
+    <button class="checkout-button" onclick="checkout()">Proceed to Checkout</button>
+</div>
+
+<script>
+function loadCart(){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let container = document.getElementById("cart-items");
+
+    if (cart.length === 0) {
+        container.innerHTML = "<p class='text-gray-400 text-center text-lg'>Your cart is empty.</p>";
+        return;
+    }
+
+    container.innerHTML = cart.map((item, index) => `
+        <div class="cart-item">
+            <span>${item.name}</span>
+            <button onclick="removeItem(${index})" style="color:#f55;">Remove</button>
+        </div>
+    `).join("");
+}
+
+function removeItem(index){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+}
+
+function checkout(){
+    alert("You must sign in to checkout.");
+    window.location.href = "signin.html";
+}
+
+loadCart();
+</script>
+<script>
+function signOut(){
+    localStorage.removeItem("userLoggedIn");
+    alert("Signed out successfully.");
+    window.location.href = "signin.html";
+}
+</script>
+<script>
+function updateAuthLink(){
+    const authLink = document.getElementById("auth-link");
+    const isLoggedIn = localStorage.getItem("userLoggedIn");
+
+    if(isLoggedIn){
+        authLink.innerText = "SIGN OUT";
+        authLink.href = "#";
+        authLink.onclick = signOut;
+    }
+    else{
+        authLink.innerText = "SIGN IN";
+        authLink.href = "signin.html";
+        authLink.onclick = null;
+    }
+}
+updateAuthLink();
+</script>
+
+
+</body>
+</html>
